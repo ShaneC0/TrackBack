@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackBack", "TrackBack\TrackBack.csproj", "{032CD0DF-6876-45E4-949D-BA3AE9E24CC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{032CD0DF-6876-45E4-949D-BA3AE9E24CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{032CD0DF-6876-45E4-949D-BA3AE9E24CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{032CD0DF-6876-45E4-949D-BA3AE9E24CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{032CD0DF-6876-45E4-949D-BA3AE9E24CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38E98D46-7724-490B-8C20-955E82CF1E69}
+	EndGlobalSection
+EndGlobal
