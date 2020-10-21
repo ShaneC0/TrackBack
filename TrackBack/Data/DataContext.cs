@@ -12,5 +12,7 @@ namespace TrackBack.Data
         public DataContext(DbContextOptions options) : base(options) {}
 
         public DbSet<Project> Projects { get; set; }
+
+        public DbSet<Bookmark> Bookmarks { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TrackBack.Data;
 using TrackBack.Models;
 
@@ -15,6 +16,21 @@ namespace TrackBack.Controllers
         public ProjectsController(DataContext context)
         {
             _context = context;
+        }
+
+        public IActionResult Dashboard(int id)
+        {
+            var project = _context.Projects
+                .Include(project => project.Bookmarks)
+                .Where(project => project.Id == id)
+                .FirstOrDefault();
+                
+            if(project == null)
+            {
+                return NotFound();
+            }
+
+            return View(project);
         }
 
         public IActionResult Index()
