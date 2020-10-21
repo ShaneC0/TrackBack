@@ -36,5 +36,39 @@ namespace TrackBack.Controllers
 
             return RedirectToAction("Dashboard", "Projects", new { id = todo.ProjectId });
         }
+
+        public IActionResult Edit(int id)
+        {
+            var todoToEdit = _context.Todos.Find(id);
+            if(todoToEdit == null)
+            {
+                return NotFound();
+            }
+
+            return View(todoToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Todo todo)
+        {
+            _context.Todos.Update(todo);
+            _context.SaveChanges();
+
+            return RedirectToAction("Dashboard", "Projects", new { id = todo.ProjectId });
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var todoToDelete = _context.Todos.Find(id);
+            if(todoToDelete == null)
+            {
+                return NotFound();
+            }
+
+            _context.Todos.Remove(todoToDelete);
+            _context.SaveChanges();
+
+            return RedirectToAction("Dashboard", "Projects", new { id = todoToDelete.ProjectId });
+        }
     }
 }
