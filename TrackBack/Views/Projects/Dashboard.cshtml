@@ -7,7 +7,7 @@
 <h1>@Model.Title</h1>
 
 <div>
-    <a asp-controller="Bookmarks" asp-action="Create" class="btn btn-success mb-3">New Bookmark</a>
+    <a asp-controller="Bookmarks" asp-action="Create" asp-route-projectId="@Model.Id" class="btn btn-success m-2">New Bookmark</a>
 </div>
 @if (Model.Bookmarks.Count() > 0)
 {
@@ -24,7 +24,7 @@
             @foreach (var bm in Model.Bookmarks)
             {
             <tr>
-                <td><a href="https://www.@bm.Url">@bm.Title</a></td>
+                <td><a href="@bm.Url">@bm.Title</a></td>
                 <td class="text-center">
                     <div class="w-75 btn-group" role="group">
                         <a asp-controller="Bookmarks" asp-action="Edit" asp-route-id="@bm.Id" class="btn btn-info">Edit</a>

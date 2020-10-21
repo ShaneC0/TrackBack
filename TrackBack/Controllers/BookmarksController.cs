@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using TrackBack.Data;
+using TrackBack.Models;
 
 namespace TrackBack.Controllers
 {
@@ -17,9 +18,19 @@ namespace TrackBack.Controllers
             _context = context;
         }
 
-        public IActionResult Create()
+        public IActionResult Create(int projectId)
         {
+            ViewBag.ProjectId = projectId;
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Bookmark bookmark)
+        {
+            _context.Bookmarks.Add(bookmark);
+            _context.SaveChanges();
+
+            return RedirectToAction("Dashboard", "Projects", new { id = bookmark.ProjectId });
         }
 
         public IActionResult Delete(int id)
