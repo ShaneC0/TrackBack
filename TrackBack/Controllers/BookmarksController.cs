@@ -33,6 +33,26 @@ namespace TrackBack.Controllers
             return RedirectToAction("Dashboard", "Projects", new { id = bookmark.ProjectId });
         }
 
+        public IActionResult Edit(int id)
+        {
+            var bookmarkToEdit = _context.Bookmarks.Find(id);
+            if(bookmarkToEdit == null)
+            {
+                return NotFound();
+            }
+
+            return View(bookmarkToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Bookmark bookmark)
+        {
+            _context.Bookmarks.Update(bookmark);
+            _context.SaveChanges();
+
+            return RedirectToAction("Dashboard", "Projects", new { id = bookmark.ProjectId });
+        }
+
         public IActionResult Delete(int id)
         {
             var bookmarkToDelete = _context.Bookmarks.Find(id);
