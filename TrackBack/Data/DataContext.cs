@@ -14,5 +14,7 @@ namespace TrackBack.Data
         public DbSet<Project> Projects { get; set; }
 
         public DbSet<Bookmark> Bookmarks { get; set; }
+
+        public DbSet<Todo> Todos { get; set; }
     }
 }

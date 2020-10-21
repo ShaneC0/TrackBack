@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrackBack.Models
 {
-    public class Project
+    public class Todo
     {
         [Key]
         public int Id { get; set; }
@@ -19,8 +19,8 @@ namespace TrackBack.Models
         [MaxLength(255)]
         public string Description { get; set; }
 
-        public List<Bookmark> Bookmarks { get; set; } = new List<Bookmark>();
+        public int ProjectId { get; set; }
 
-        public List<Todo> Todos { get; set; } = new List<Todo>();
+        public virtual Project Project { get; set; }
     }
 }
