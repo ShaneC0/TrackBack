@@ -22,6 +22,7 @@ namespace TrackBack.Controllers
         {
             var project = _context.Projects
                 .Include(project => project.Bookmarks)
+                .Include(project => project.Todos)
                 .Where(project => project.Id == id)
                 .FirstOrDefault();
                 
