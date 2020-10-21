@@ -2,7 +2,7 @@
 
 namespace TrackBack.Migrations
 {
-    public partial class addProjectTable : Migration
+    public partial class initialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

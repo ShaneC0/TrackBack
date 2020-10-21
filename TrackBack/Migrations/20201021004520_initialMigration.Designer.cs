@@ -9,8 +9,8 @@ using TrackBack.Data;
 namespace TrackBack.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201020220013_addProjectTable")]
-    partial class addProjectTable
+    [Migration("20201021004520_initialMigration")]
+    partial class initialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
