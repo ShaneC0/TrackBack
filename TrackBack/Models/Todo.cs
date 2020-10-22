@@ -19,6 +19,9 @@ namespace TrackBack.Models
         [MaxLength(255)]
         public string Description { get; set; }
 
+        [Required]
+        public bool Completed { get; set; } = false;
+
         public int ProjectId { get; set; }
 
         public virtual Project Project { get; set; }

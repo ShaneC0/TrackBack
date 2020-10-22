@@ -57,7 +57,7 @@ namespace TrackBack.Controllers
             return RedirectToAction("Dashboard", "Projects", new { id = todo.ProjectId });
         }
 
-        public IActionResult Delete(int id)
+        public IActionResult SoftDelete(int id)
         {
             var todoToDelete = _context.Todos.Find(id);
             if(todoToDelete == null)
@@ -65,7 +65,9 @@ namespace TrackBack.Controllers
                 return NotFound();
             }
 
-            _context.Todos.Remove(todoToDelete);
+            todoToDelete.Completed = true;
+
+            _context.Todos.Update(todoToDelete);
             _context.SaveChanges();
 
             return RedirectToAction("Dashboard", "Projects", new { id = todoToDelete.ProjectId });
