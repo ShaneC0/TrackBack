@@ -29,7 +29,7 @@
                             <td class="w-75"><a href="@bm.Url">@bm.Title</a></td>
                             <td class="text-center w-25">
                                 <div class=" btn-group" role="group">
-                                    <a asp-controller="Bookmarks" asp-action="Edit" asp-route-id="@bm.Id" class="btn btn-info">Edit</a>
+                                    <a asp-controller="Bookmarks" asp-action="Edit" asp-route-id="@bm.Id" class="btn btn-warning">Edit</a>
                                     <a asp-controller="Bookmarks" asp-action="Delete" asp-route-id="@bm.Id" class="btn btn-danger">Delete</a>
                                 </div>
                             </td>
@@ -72,7 +72,7 @@
                                 <td class="flex-wrap w-50">@todo.Description</td>
                                 <td class="text-center w-10">
                                     <div class="btn-group" role="group">
-                                        <a asp-controller="Todos" asp-action="Edit" asp-route-id="@todo.Id" class="btn btn-info">Edit</a>
+                                        <a asp-controller="Todos" asp-action="Edit" asp-route-id="@todo.Id" class="btn btn-warning">Edit</a>
                                         <a asp-controller="Todos" asp-action="SoftDelete" asp-route-id="@todo.Id" class="btn btn-danger">Finish</a>
                                     </div>
                                 </td>
