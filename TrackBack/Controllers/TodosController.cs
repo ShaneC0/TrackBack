@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TrackBack.Data;
 using TrackBack.Models;
 
@@ -15,7 +16,8 @@ namespace TrackBack.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var todoItems = _context.Todos.Include(todo => todo.Project);
+            return View(todoItems);
         }
 
         public IActionResult Create(int projectId)
