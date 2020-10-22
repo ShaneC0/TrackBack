@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TrackBack.Data;
 using TrackBack.Models;
 
@@ -16,6 +12,12 @@ namespace TrackBack.Controllers
         public BookmarksController(DataContext context)
         {
             _context = context;
+        }
+
+        public IActionResult Index()
+        {
+            var bookmarkItems = _context.Bookmarks.Include(bookmark => bookmark.Project);
+            return View(bookmarkItems);
         }
 
         public IActionResult Create(int projectId)
@@ -36,7 +38,7 @@ namespace TrackBack.Controllers
         public IActionResult Edit(int id)
         {
             var bookmarkToEdit = _context.Bookmarks.Find(id);
-            if(bookmarkToEdit == null)
+            if (bookmarkToEdit == null)
             {
                 return NotFound();
             }
@@ -56,7 +58,7 @@ namespace TrackBack.Controllers
         public IActionResult Delete(int id)
         {
             var bookmarkToDelete = _context.Bookmarks.Find(id);
-            if(bookmarkToDelete == null)
+            if (bookmarkToDelete == null)
             {
                 return NotFound();
             }
@@ -64,7 +66,7 @@ namespace TrackBack.Controllers
             _context.Bookmarks.Remove(bookmarkToDelete);
             _context.SaveChanges();
 
-            return RedirectToAction("Dashboard", "Projects", new { id = bookmarkToDelete.ProjectId});
+            return RedirectToAction("Dashboard", "Projects", new { id = bookmarkToDelete.ProjectId });
         }
     }
 }

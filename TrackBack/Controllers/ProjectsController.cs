@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using TrackBack.Data;
 using TrackBack.Models;
 
@@ -25,8 +22,8 @@ namespace TrackBack.Controllers
                 .Include(project => project.Todos)
                 .Where(project => project.Id == id)
                 .FirstOrDefault();
-                
-            if(project == null)
+
+            if (project == null)
             {
                 return NotFound();
             }
@@ -57,7 +54,7 @@ namespace TrackBack.Controllers
         public IActionResult Edit(int id)
         {
             var projectToEdit = _context.Projects.Find(id);
-            if(projectToEdit == null)
+            if (projectToEdit == null)
             {
                 return NotFound();
             }

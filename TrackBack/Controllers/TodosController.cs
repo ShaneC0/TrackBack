@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TrackBack.Data;
 using TrackBack.Models;
 
@@ -40,7 +36,7 @@ namespace TrackBack.Controllers
         public IActionResult Edit(int id)
         {
             var todoToEdit = _context.Todos.Find(id);
-            if(todoToEdit == null)
+            if (todoToEdit == null)
             {
                 return NotFound();
             }
@@ -60,7 +56,7 @@ namespace TrackBack.Controllers
         public IActionResult SoftDelete(int id)
         {
             var todoToDelete = _context.Todos.Find(id);
-            if(todoToDelete == null)
+            if (todoToDelete == null)
             {
                 return NotFound();
             }

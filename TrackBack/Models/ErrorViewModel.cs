@@ -1,5 +1,3 @@
-using System;
-
 namespace TrackBack.Models
 {
     public class ErrorViewModel

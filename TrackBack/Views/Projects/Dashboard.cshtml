@@ -26,8 +26,8 @@
                     @foreach (var bm in Model.Bookmarks)
                     {
                         <tr>
-                            <td><a href="@bm.Url">@bm.Title</a></td>
-                            <td class="text-center">
+                            <td class="w-75"><a href="@bm.Url">@bm.Title</a></td>
+                            <td class="text-center w-25">
                                 <div class=" btn-group" role="group">
                                     <a asp-controller="Bookmarks" asp-action="Edit" asp-route-id="@bm.Id" class="btn btn-info">Edit</a>
                                     <a asp-controller="Bookmarks" asp-action="Delete" asp-route-id="@bm.Id" class="btn btn-danger">Delete</a>
