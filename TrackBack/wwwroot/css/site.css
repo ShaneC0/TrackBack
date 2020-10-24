@@ -90,6 +90,10 @@ body {
     margin-top: 5vh;
 }
 
+.fa-bars {
+    color: #e0e1dd;
+}
+
 .footer {
     position: absolute;
     background: #0d1b2a;
