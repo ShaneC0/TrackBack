@@ -9,7 +9,7 @@ using TrackBack.Data;
 namespace TrackBack.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201021132240_initialMigration")]
+    [Migration("20201023215615_initialMigration")]
     partial class initialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,10 +68,49 @@ namespace TrackBack.Migrations
                     b.ToTable("Projects");
                 });
 
+            modelBuilder.Entity("TrackBack.Models.Todo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Completed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Todos");
+                });
+
             modelBuilder.Entity("TrackBack.Models.Bookmark", b =>
                 {
                     b.HasOne("TrackBack.Models.Project", "Project")
                         .WithMany("Bookmarks")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("TrackBack.Models.Todo", b =>
+                {
+                    b.HasOne("TrackBack.Models.Project", "Project")
+                        .WithMany("Todos")
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

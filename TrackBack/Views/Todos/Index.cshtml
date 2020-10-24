@@ -41,8 +41,8 @@
                         <td class="text-center">
                             <div class="btn-group" role="group">
                                 <a asp-action="Dashboard" asp-route-id="@item.ProjectId" asp-controller="Projects" class="btn btn-primary">Project</a>
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fas fa-times"></i></a>
                             </div>
                         </td>
                     </tr>
