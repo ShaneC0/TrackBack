@@ -4,92 +4,96 @@
     ViewData["Title"] = "Dashboard";
 }
 
-    <h1>@Model.Title</h1>
+<div class="container">
+    <div class="backcard">
+        <h1>@Model.Title</h1>
 
-    <div class="d-flex mw-100">
-        <div class="flex-column w-50 mr-2">
-            <div>
-                <a asp-controller="Bookmarks" asp-action="Create" asp-route-projectId="@Model.Id" class="btn btn-success m-2"><i class="fas fa-plus"></i> &nbsp; Bookmark</a>
-            </div>
-            @if (Model.Bookmarks.Count() > 0)
-            {
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>
-                                Bookmarks
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var bm in Model.Bookmarks)
-                        {
+        <div class="d-flex mw-100">
+            <div class="flex-column w-50 mr-2">
+                <div>
+                    <a asp-controller="Bookmarks" asp-action="Create" asp-route-projectId="@Model.Id" class="btn btn-success m-2"><i class="fas fa-plus"></i> &nbsp; Bookmark</a>
+                </div>
+                @if (Model.Bookmarks.Count() > 0)
+                {
+                    <table class="table table-bordered table-striped">
+                        <thead>
                             <tr>
-                                <td class="w-75"><a href="@bm.Url"><b>@bm.Title</b></a></td>
-                                <td class="text-center w-25">
-                                    <div class=" btn-group" role="group">
-                                        <a asp-controller="Bookmarks" asp-action="Edit" asp-route-id="@bm.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                        <a asp-controller="Bookmarks" asp-action="Delete" asp-route-id="@bm.Id" class="btn btn-danger"><i class="fas fa-times"></i></a>
-                                    </div>
-                                </td>
+                                <th>
+                                    Bookmarks
+                                </th>
+                                <th></th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
-            }
-            else
-            {
-                <p>No bookmarks to display.</p>
-            }
-        </div>
-
-        <div class="flex-column w-100">
-            <div>
-                <a asp-controller="Todos" asp-action="Create" asp-route-projectId="@Model.Id" class="btn btn-success m-2"><i class="fas fa-plus"></i> &nbsp; Todo</a>
-            </div>
-            @if (Model.Todos.Count() > 0)
-            {
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>
-                                Task
-                            </th>
-                            <th>
-                                Details
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var todo in Model.Todos)
-                        {
-                            @if (!todo.Completed)
+                        </thead>
+                        <tbody>
+                            @foreach (var bm in Model.Bookmarks)
                             {
                                 <tr>
-                                    <td class="w-40"><b>@todo.Title</b></td>
-                                    <td class="flex-wrap w-50">@todo.Description</td>
-                                    <td class="text-center w-10">
-                                        <div class="btn-group" role="group">
-                                            <a asp-controller="Todos" asp-action="Edit" asp-route-id="@todo.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                            <a asp-controller="Todos" asp-action="SoftDelete" asp-route-id="@todo.Id" class="btn btn-danger"><i class="fas fa-times"></i></a>
+                                    <td class="w-75"><a href="@bm.Url"><b>@bm.Title</b></a></td>
+                                    <td class="text-center w-25">
+                                        <div class=" btn-group" role="group">
+                                            <a asp-controller="Bookmarks" asp-action="Edit" asp-route-id="@bm.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                            <a asp-controller="Bookmarks" asp-action="Delete" asp-route-id="@bm.Id" class="btn btn-danger"><i class="fas fa-times"></i></a>
                                         </div>
                                     </td>
                                 </tr>
                             }
-                        }
-                    </tbody>
-                </table>
-            }
-            else
-            {
-                <p>No todos to display.</p>
-            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>No bookmarks to display.</p>
+                }
+            </div>
+
+            <div class="flex-column w-100">
+                <div>
+                    <a asp-controller="Todos" asp-action="Create" asp-route-projectId="@Model.Id" class="btn btn-success m-2"><i class="fas fa-plus"></i> &nbsp; Todo</a>
+                </div>
+                @if (Model.Todos.Count() > 0)
+                {
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Task
+                                </th>
+                                <th>
+                                    Details
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var todo in Model.Todos)
+                            {
+                                @if (!todo.Completed)
+                                {
+                                    <tr>
+                                        <td class="w-40"><b>@todo.Title</b></td>
+                                        <td class="flex-wrap w-50">@todo.Description</td>
+                                        <td class="text-center w-10">
+                                            <div class="btn-group" role="group">
+                                                <a asp-controller="Todos" asp-action="Edit" asp-route-id="@todo.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                                <a asp-controller="Todos" asp-action="SoftDelete" asp-route-id="@todo.Id" class="btn btn-danger"><i class="fas fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>No todos to display.</p>
+                }
+            </div>
         </div>
-    </div>
 
-    <div>
-        <a asp-action="Index" class="btn btn-primary"><i class="fas fa-backward"></i></a>
-    </div>
+        <div>
+            <a asp-action="Index" class="btn btn-primary"><i class="fas fa-backward"></i></a>
+        </div>
 
+    </div>
+</div>

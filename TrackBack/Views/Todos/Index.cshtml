@@ -4,86 +4,88 @@
     ViewData["Title"] = "Index";
 }
 
-
-    <h1>Incomplete</h1>
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Project)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                @if (!item.Completed)
+<div class="container">
+    <div class="backcard">
+        <h1>Incomplete</h1>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Project)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            <b>@Html.DisplayFor(modelItem => item.Title)</b>
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Project.Title)
-                        </td>
-                        <td class="text-center">
-                            <div class="btn-group" role="group">
-                                <a asp-action="Dashboard" asp-route-id="@item.ProjectId" asp-controller="Projects" class="btn btn-primary">Project</a>
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fas fa-times"></i></a>
-                            </div>
-                        </td>
-                    </tr>
+                    @if (!item.Completed)
+                    {
+                        <tr>
+                            <td>
+                                <b>@Html.DisplayFor(modelItem => item.Title)</b>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Project.Title)
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group" role="group">
+                                    <a asp-action="Dashboard" asp-route-id="@item.ProjectId" asp-controller="Projects" class="btn btn-primary">Project</a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fas fa-times"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
                 }
-            }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <h1>Completed</h1>
+        <h1>Completed</h1>
 
-
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Project)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                @if (item.Completed)
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Project)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            <b>@Html.DisplayFor(modelItem => item.Title)</b>
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Project.Title)
-                        </td>
-                    </tr>
-                }
+                    @if (item.Completed)
+                    {
+                        <tr>
+                            <td>
+                                <b>@Html.DisplayFor(modelItem => item.Title)</b>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Project.Title)
+                            </td>
+                        </tr>
+                    }
 
-            }
-        </tbody>
-    </table>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
