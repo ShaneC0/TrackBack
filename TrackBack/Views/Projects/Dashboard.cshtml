@@ -7,9 +7,8 @@
 <div class="container">
     <div class="backcard">
         <h1>@Model.Title</h1>
-
-        <div class="d-flex mw-100">
-            <div class="flex-column w-50 mr-2">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
                 <div>
                     <a asp-controller="Bookmarks" asp-action="Create" asp-route-projectId="@Model.Id" class="btn btn-success m-2"><i class="fas fa-plus"></i> &nbsp; Bookmark</a>
                 </div>
@@ -46,7 +45,7 @@
                 }
             </div>
 
-            <div class="flex-column w-100">
+            <div class="col-lg-8">
                 <div>
                     <a asp-controller="Todos" asp-action="Create" asp-route-projectId="@Model.Id" class="btn btn-success m-2"><i class="fas fa-plus"></i> &nbsp; Todo</a>
                 </div>
@@ -90,7 +89,6 @@
                 }
             </div>
         </div>
-
         <div>
             <a asp-action="Index" class="btn btn-primary"><i class="fas fa-backward"></i></a>
         </div>
