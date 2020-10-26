@@ -8,7 +8,13 @@
             <h1 class="display-3">TRACKBACK</h1>
             <hr class="w-75" style="border-color: #e0e1dd" />
             <h3>The project manager for the future</h3>
-            <a asp-controller="Projects" asp-action="Create" class="btn btn-success mt-2">Create a project</a>
+            <div class="row justify-content-center">
+                <a asp-controller="Projects" asp-action="Create" class="btn btn-success">Create a Project</a> 
+                &nbsp;
+                <h6 class="mt-2">OR</h6> 
+                &nbsp;
+                <a asp-controller="Projects" asp-action="Index" class="btn btn-success">My Projects</a>
+            </div>
         </div>
     </div>
 </div>

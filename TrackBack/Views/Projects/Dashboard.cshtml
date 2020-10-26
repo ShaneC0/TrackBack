@@ -31,7 +31,7 @@
                                     <td class="text-center w-25">
                                         <div class=" btn-group" role="group">
                                             <a asp-controller="Bookmarks" asp-action="Edit" asp-route-id="@bm.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                            <a asp-controller="Bookmarks" asp-action="Delete" asp-route-id="@bm.Id" class="btn btn-danger"><i class="fas fa-times"></i></a>
+                                            <a asp-controller="Bookmarks" asp-action="Delete" asp-route-id="@bm.Id" class="btn btn-success"><i class="fas fa-times"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -73,8 +73,8 @@
                                         <td class="flex-wrap w-50">@todo.Description</td>
                                         <td class="text-center w-10">
                                             <div class="btn-group" role="group">
+                                                <a asp-controller="Todos" asp-action="SoftDelete" asp-route-id="@todo.Id" class="btn btn-success"><i class="fas fa-check"></i></a>
                                                 <a asp-controller="Todos" asp-action="Edit" asp-route-id="@todo.Id" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                                <a asp-controller="Todos" asp-action="SoftDelete" asp-route-id="@todo.Id" class="btn btn-danger"><i class="fas fa-times"></i></a>
                                             </div>
                                         </td>
                                     </tr>
